@@ -114,10 +114,6 @@ let package = Package(
       targets: ["FirebaseMessaging"]
     ),
     .library(
-      name: "FirebaseMLModelDownloader",
-      targets: ["FirebaseMLModelDownloader"]
-    ),
-    .library(
       name: "FirebasePerformance",
       targets: ["FirebasePerformanceTarget"]
     ),
