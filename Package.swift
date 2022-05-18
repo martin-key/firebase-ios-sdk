@@ -141,11 +141,6 @@ let package = Package(
       "2.1.0" ..< "3.0.0"
     ),
     .package(
-      name: "SwiftProtobuf",
-      url: "https://github.com/apple/swift-protobuf.git",
-      "1.19.0" ..< "2.0.0"
-    ),
-    .package(
       name: "GoogleAppMeasurement",
       url: "https://github.com/google/GoogleAppMeasurement.git",
       // Note that CI changes the version to the head of main for CI.
@@ -866,28 +861,6 @@ let package = Package(
       linkerSettings: [
         .linkedFramework("Security"),
       ]
-    ),
-
-    .target(
-      name: "FirebaseMLModelDownloader",
-      dependencies: [
-        "FirebaseCore",
-        "FirebaseInstallations",
-        .product(name: "GULLogger", package: "GoogleUtilities"),
-        "SwiftProtobuf",
-      ],
-      path: "FirebaseMLModelDownloader/Sources",
-      exclude: [
-        "proto/firebase_ml_log_sdk.proto",
-      ],
-      cSettings: [
-        .define("FIRMLModelDownloader_VERSION", to: firebaseVersion),
-      ]
-    ),
-    .testTarget(
-      name: "FirebaseMLModelDownloaderUnit",
-      dependencies: ["FirebaseMLModelDownloader"],
-      path: "FirebaseMLModelDownloader/Tests/Unit"
     ),
 
     .target(
